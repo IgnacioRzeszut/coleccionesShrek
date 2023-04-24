@@ -1,7 +1,10 @@
 /** First Wollok example */
 object fiona {
-	
-	method potencia() = 50
+	var equipo = []
+	method potencia() = 50 + equipo.sum({elemento => elemento.potencia()})
+	method equipar(algo){
+		equipo.add(algo)
+	}
 	}
 
 object shrek{
@@ -29,21 +32,58 @@ object shrek{
 	}
 }
 
-
+object espada{
+	method potencia() = 50
+	method fidelidad() = 10
+}
 
 
 object burro{
+	var equipamiento = []
+	method fidelidad() = 150 + self.mejorEquipamiento()
 	
-	method fidelidad() = 150
+	method mejorEquipamiento(){
+		if(equipamiento.isEmpty()){
+			return 0
+		}
+		else {
+			return equipamiento.max({equipo => equipo.fidelidad()}).fidelidad()
+		}
+	}
+	
+	method agregar(equipo){
+		equipamiento.add(equipo)
+	}
 	
 
 }
 
-
-
+object collar{
+	method fidelidad() = 150
+	method potencia() = 0
+}
+object poncho{
+	method fidelidad() = 200
+	method potencia() = 1
+}
 object gato{
-	method fidelidad() = 70
-	method potencia() = 10
+	var equipamiento = []
+	
+	method fidelidad() = 70 + self.mejorEquipamiento()
+	method potencia() = 50 + equipamiento.sum({elemento => elemento.potencia()})
+	
+	method mejorEquipamiento(){
+		if(equipamiento.isEmpty()){
+			return 0
+		}
+		else {
+			return equipamiento.max({equipo => equipo.fidelidad()}).fidelidad()
+		}
+	}
+	method agregar(equipo){
+		equipamiento.add(equipo)
+	}
+	
 }
 
 //

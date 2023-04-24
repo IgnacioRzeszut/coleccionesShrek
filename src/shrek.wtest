@@ -16,19 +16,4 @@ test "exported test from REPL session" {
 	personajes.contains(dragon)
 	personajes.max({p=>p.fidelidad()})
 	
-	
->>> var otrosNros = [ -1,-5,2,4]
->>> otrosNros.find({nro=>nro.even()})
-2
->>> otrosNros.sortedBy({nro, otro => nro.abs() > otro.abs()})
-[-5, 4, 2, -1]
->>> otrosNros.all({nro=>nro.even()})
-false
->>> otrosNros.any({nro=>nro.even()})
-true
->>> otrosNros.contains(-5)
-true
->>> otrosNros.filter({nro=>nro.even()})
-[2, 4]
-	
 }

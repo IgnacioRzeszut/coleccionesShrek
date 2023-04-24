@@ -82,3 +82,32 @@ test "potencia del dragon con aliados"{
 	dragon.aliarse(gato)
 	assert.equals(350,dragon.potencia())
 }
+
+test "potencia de fiona con espada"{
+	fiona.equipar(espada)
+	assert.equals(100,fiona.potencia())
+}
+
+test "fidelidad del burro con collar"{
+	burro.agregar(collar)
+	assert.equals(300,burro.fidelidad())
+}
+
+test "fidelidad del burro con collar y poncho"{
+	burro.agregar(collar)
+	burro.agregar(poncho)
+	assert.equals(350,burro.fidelidad())
+}
+
+test "fidelidad del gato con collar y poncho"{
+	gato.agregar(collar)
+	gato.agregar(poncho)
+	assert.equals(270,gato.fidelidad())
+}
+
+test "potencia del gato con collar y poncho"{
+	gato.agregar(collar)
+	gato.agregar(poncho)
+	assert.equals(51,gato.potencia())
+}
+
