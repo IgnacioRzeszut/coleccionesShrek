@@ -1,0 +1,19 @@
+import shrek.*
+
+// auto-generated at 24/04/2023 10:04:48
+test "exported test from REPL session" {
+	
+	var personajes = [gato, burro]
+	personajes.filter({p=>p.fidelidad()>100})
+	personajes.filter({p=>p.fidelidad()>10})
+	personajes.filter({p=>p.fidelidad()>1000})
+	personajes.sum({p=>p.fidelidad()})
+	
+	personajes.max({p=>p.fidelidad()})
+	personajes.contains(burro)
+	personajes.contains(dragon)
+	personajes.add(dragon)
+	personajes.contains(dragon)
+	personajes.max({p=>p.fidelidad()})
+	
+}
