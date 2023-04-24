@@ -1,0 +1,16 @@
+import shrek.*
+
+
+test "Shrek logra rescatar a la princesa" {
+	shrek.seHaceAmigoDe(burro)
+	assert.that(shrek.puedeRescatar(fiona))
+
+}
+
+
+
+test "Shrek no logra rescatar a la princesa" {
+
+	assert.notThat(shrek.puedeRescatar(fiona))
+
+}
