@@ -57,7 +57,7 @@ object dragon{
 	var aliados = []
 	
 	var potencia = 100
-	method potencia() = potencia * (aliados.size() + 1) //+ self.potenciaDelMejorAliado()
+	method potencia() = potencia * (aliados.size() + 1) + self.potenciaDelMejorAliado()
 	
 	method potenciar() {
 		potencia = potencia * 2
@@ -67,6 +67,9 @@ object dragon{
 		aliados.add(alguien)
 	}
 	method potenciaDelMejorAliado() =
-		aliados.max({aliado=> aliado.potencia()}).potencia()
+		if(aliados.isEmpty())
+			0
+		else
+			aliados.max({aliado=> aliado.potencia()}).potencia()
 }
 

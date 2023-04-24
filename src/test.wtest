@@ -80,5 +80,5 @@ test "potencia del dragon con aliados"{
 	
 	dragon.aliarse(fiona)
 	dragon.aliarse(gato)
-	assert.equals(300,dragon.potencia())
+	assert.equals(350,dragon.potencia())
 }
