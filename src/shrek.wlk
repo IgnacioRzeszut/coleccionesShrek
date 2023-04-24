@@ -46,10 +46,10 @@ object gato{
 	method potencia() = 10
 }
 
-
-object nadie{
-	method fidelidad() = 0
-}
+//
+//object nadie{
+//	method fidelidad() = 0
+//}
 
 
 object dragon{
