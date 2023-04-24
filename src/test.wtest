@@ -1,15 +1,26 @@
 import shrek.*
 
 
-test "Shrek logra rescatar a la princesa" {
+test "Con el burro Shrek logra rescatar a la princesa" {
 	shrek.seHaceAmigoDe(burro)
 	assert.that(shrek.puedeRescatar(fiona))
 
 }
 
+test "Con el burro Shrek , pero con el dragon potenciado, no logra rescatar a la princesa" {
+	shrek.seHaceAmigoDe(burro)
+	dragon.potenciar()
+	assert.notThat(shrek.puedeRescatar(fiona))
 
+}
 
-test "Shrek no logra rescatar a la princesa" {
+test "Con el gato Shrek no logra rescatar a la princesa" {
+	shrek.seHaceAmigoDe(gato)
+	assert.notThat(shrek.puedeRescatar(fiona))
+
+}
+
+test "Estando solo, Shrek no logra rescatar a la princesa" {
 
 	assert.notThat(shrek.puedeRescatar(fiona))
 
