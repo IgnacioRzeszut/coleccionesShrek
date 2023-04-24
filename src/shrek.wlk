@@ -1,37 +1,31 @@
 /** First Wollok example */
 object fiona {
+	
+	method potencia() = 50
 	}
 
 object shrek{
 	//var tieneAmigos = false
-	var amigo = nadie
-	var otroAmigo = nadie
+	var administradorDeAmigos = []
 
 	method estaSolo() = not self.tieneAmigos()
 	
 	method puedeRescatar(alguien) = 
 //		amigo != null &&
-		amigo.fidelidad() + otroAmigo.fidelidad() > dragon.potencia()
+		administradorDeAmigos.sum({elemento=> elemento.fidelidad()}) > dragon.potencia()
 	
 	
-	method tieneAmigos() = amigo != nadie || otroAmigo != nadie
+	method tieneAmigos() = not administradorDeAmigos.isEmpty()
 	
 	method seHaceAmigoDe(alguien){
 //		tieneAmigos = true
-	if (amigo == nadie)
-		amigo = alguien
-	else 
-		otroAmigo = alguien
+		administradorDeAmigos.add(alguien)
 	}
 	method cantidadAmigos() = 
-		if (self.estaSolo()) 0 
-		else if (otroAmigo == nadie ) 1 else 2
-		
+		administradorDeAmigos.size()
+			
 	method pelearseCon(alguien){
-		if (amigo == alguien) 
-			amigo = nadie
-		if (otroAmigo == alguien)
-			otroAmigo = nadie
+		administradorDeAmigos.remove(alguien)
 	}
 }
 
@@ -41,12 +35,15 @@ object shrek{
 object burro{
 	
 	method fidelidad() = 150
+	
+
 }
 
 
 
 object gato{
 	method fidelidad() = 70
+	method potencia() = 10
 }
 
 
@@ -57,10 +54,19 @@ object nadie{
 
 object dragon{
 	
+	var aliados = []
+	
 	var potencia = 100
-	method potencia() = potencia
+	method potencia() = potencia * (aliados.size() + 1) //+ self.potenciaDelMejorAliado()
 	
 	method potenciar() {
 		potencia = potencia * 2
 	} 
+	
+	method aliarse(alguien){
+		aliados.add(alguien)
+	}
+	method potenciaDelMejorAliado() =
+		aliados.max({aliado=> aliado.potencia()}).potencia()
 }
+

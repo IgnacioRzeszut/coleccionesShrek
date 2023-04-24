@@ -74,3 +74,11 @@ test "se hace amigo del burro y el gato, luego se pelea con el burro y la cantid
 	assert.equals(1,shrek.cantidadAmigos())
 
 }
+
+
+test "potencia del dragon con aliados"{
+	
+	dragon.aliarse(fiona)
+	dragon.aliarse(gato)
+	assert.equals(300,dragon.potencia())
+}
