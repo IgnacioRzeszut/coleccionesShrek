@@ -7,10 +7,24 @@ test "Con el burro Shrek logra rescatar a la princesa" {
 
 }
 
+test "Con el burro Shrek, no esta solo" {
+	shrek.seHaceAmigoDe(burro)
+	assert.notThat(shrek.estaSolo())
+
+}
+
 test "Con el burro Shrek , pero con el dragon potenciado, no logra rescatar a la princesa" {
 	shrek.seHaceAmigoDe(burro)
 	dragon.potenciar()
 	assert.notThat(shrek.puedeRescatar(fiona))
+
+}
+
+test "Con el burro Shrek y el gato como amigos, aun con el dragon potenciado, logra rescatar a la princesa" {
+	shrek.seHaceAmigoDe(burro)
+	dragon.potenciar()
+	shrek.seHaceAmigoDe(gato)
+	assert.that(shrek.puedeRescatar(fiona))
 
 }
 
@@ -23,5 +37,40 @@ test "Con el gato Shrek no logra rescatar a la princesa" {
 test "Estando solo, Shrek no logra rescatar a la princesa" {
 
 	assert.notThat(shrek.puedeRescatar(fiona))
+
+}
+
+test "inicialmente, Shrek esta solo" {
+
+	assert.that(shrek.estaSolo())
+
+}
+
+
+test "inicialmente, la cantidad de amigos es 0" {
+
+	assert.equals(0,shrek.cantidadAmigos())
+
+}
+
+test "con el burro, la cantidad de amigos es 1" {
+	shrek.seHaceAmigoDe(burro)
+	assert.equals(1,shrek.cantidadAmigos())
+
+}
+
+test "con el burro y el gato, la cantidad de amigos es 2" {
+	shrek.seHaceAmigoDe(burro)
+	shrek.seHaceAmigoDe(gato)
+	assert.equals(2,shrek.cantidadAmigos())
+
+}
+
+
+test "se hace amigo del burro y el gato, luego se pelea con el burro y la cantidad de amigos queda en 1" {
+	shrek.seHaceAmigoDe(burro)
+	shrek.seHaceAmigoDe(gato)
+	shrek.pelearseCon(burro)
+	assert.equals(1,shrek.cantidadAmigos())
 
 }
